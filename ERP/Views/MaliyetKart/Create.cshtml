@@ -1,0 +1,114 @@
+﻿@model ERP.Models.Veri.Maliyet.BSMGRNNMCCMHEAD
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-primary text-center mb-4">Yeni Maliyet Merkezi Oluştur</h1>
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6 shadow-lg p-4 rounded bg-light">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="COMCODE" class="control-label">Firma Kodu</label>
+                <select asp-for="COMCODE" class="form-control" asp-items="ViewBag.COMCODE"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMDOCNUM" class="control-label">Maliyet Merkezi Kodu</label>
+                <input asp-for="CCMDOCNUM" class="form-control" />
+                <span asp-validation-for="CCMDOCNUM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMDOCTYPE" class="control-label">Maliyet Merkezi Tipi</label>
+                <select asp-for="CCMDOCTYPE" class="form-control" asp-items="ViewBag.CCMDOCTYPE"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMDOCFROM" class="control-label">Geçerlilik Başlangıç</label>
+                <input asp-for="CCMDOCFROM" class="form-control" />
+                <span asp-validation-for="CCMDOCFROM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMDOCUNTIL" class="control-label">Geçerlilik Bitiş</label>
+                <input asp-for="CCMDOCUNTIL" class="form-control" />
+                <span asp-validation-for="CCMDOCUNTIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MAINCCMDOCNUM" class="control-label">Ana Maliyet Merkezi Kodu</label>
+                <input asp-for="MAINCCMDOCNUM" class="form-control" />
+                <span asp-validation-for="MAINCCMDOCNUM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MAINCCMDOCTYPE" class="control-label">Ana Maliyet Merkezi Tipi</label>
+                <input asp-for="MAINCCMDOCTYPE" class="form-control" />
+                <span asp-validation-for="MAINCCMDOCTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISDELETED" class="control-label">Silindi mi?</label>
+                <input asp-for="ISDELETED" class="form-control" />
+                <span asp-validation-for="ISDELETED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISPASSIVE" class="control-label">Pasif mi?</label>
+                <input asp-for="ISPASSIVE" class="form-control" />
+                <span asp-validation-for="ISPASSIVE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LANCODE" class="control-label">Dil Kodu</label>
+                <select asp-for="LANCODE" class="form-control" asp-items="ViewBag.LANCODE"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMSTEXT" class="control-label">Maliyet Merkezi Kısa Açıklaması</label>
+                <input asp-for="CCMSTEXT" class="form-control" />
+                <span asp-validation-for="CCMSTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CCMLTEXT" class="control-label">Maliyet Merkezi Uzun Açıklaması</label>
+                <input asp-for="CCMLTEXT" class="form-control" />
+                <span asp-validation-for="CCMLTEXT" class="text-danger"></span>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary shadow-sm me-2">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+                <a asp-action="Index" class="btn btn-secondary shadow-sm">
+                    <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Stil Tasarımları -->
+<style>
+    input:focus, select:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover, a:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>

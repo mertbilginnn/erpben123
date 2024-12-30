@@ -1,0 +1,107 @@
+﻿@model ERP.Models.Veri.UrunAgac.BSMGRNNMBOMHEAD
+
+@{
+    ViewData["Title"] = "Yeni Ürün Ağacı Oluştur";
+}
+
+<h1 class="text-primary text-center mb-4">Yeni Ürün Ağacı Oluştur</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8 shadow-lg p-4 rounded bg-light">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="COMCODE" class="form-label">Firma Kodu</label>
+                    <select asp-for="COMCODE" class="form-select" asp-items="ViewBag.COMCODE"></select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="BOMDOCNUM" class="form-label">Ürün Ağacı Kodu</label>
+                    <input asp-for="BOMDOCNUM" class="form-control" />
+                    <span asp-validation-for="BOMDOCNUM" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="BOMDOCTYPE" class="form-label">Ürün Ağacı Tipi</label>
+                    <select asp-for="BOMDOCTYPE" class="form-select" asp-items="ViewBag.BOMDOCTYPE"></select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="BOMDOCFROM" class="form-label">Geçerlilik Başlangıç</label>
+                    <input asp-for="BOMDOCFROM" class="form-control" />
+                    <span asp-validation-for="BOMDOCFROM" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="BOMDOCUNTIL" class="form-label">Geçerlilik Bitiş</label>
+                    <input asp-for="BOMDOCUNTIL" class="form-control" />
+                    <span asp-validation-for="BOMDOCUNTIL" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="MATDOCNUM" class="form-label">Malzeme Kodu</label>
+                    <input asp-for="MATDOCNUM" class="form-control" />
+                    <span asp-validation-for="MATDOCNUM" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <label asp-for="MATDOCTYPE" class="form-label">Malzeme Tipi</label>
+                    <select asp-for="MATDOCTYPE" class="form-select" asp-items="ViewBag.MATDOCTYPE"></select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="CONTENTNUM" class="form-label">İçerik Numarası</label>
+                    <input asp-for="CONTENTNUM" class="form-control" />
+                    <span asp-validation-for="CONTENTNUM" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="COMPONENT" class="form-label">Bileşen</label>
+                    <input asp-for="COMPONENT" class="form-control" />
+                    <span asp-validation-for="COMPONENT" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <label asp-for="ISDELETED" class="form-label">Silindi mi?</label>
+                    <input asp-for="ISDELETED" class="form-control" />
+                    <span asp-validation-for="ISDELETED" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="ISPASSIVE" class="form-label">Pasif mi?</label>
+                    <input asp-for="ISPASSIVE" class="form-control" />
+                    <span asp-validation-for="ISPASSIVE" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="DRAWNUM" class="form-label">Çizim Numarası</label>
+                    <input asp-for="DRAWNUM" class="form-control" />
+                    <span asp-validation-for="DRAWNUM" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <button type="submit" class="btn btn-success btn-lg shadow-sm">
+                    <i class="fas fa-save"></i> Oluştur
+                </button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">
+                    <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    input:focus, select:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+</style>

@@ -1,0 +1,86 @@
+﻿@model ERP.Models.Veri.UrunAgac.BSMGRNNMBOMHEAD
+
+@{
+    ViewData["Title"] = "Ürün Ağacı Sil";
+}
+
+<h1 class="text-danger text-center mb-4">Ürün Ağacı Sil</h1>
+
+<h3 class="text-center">Bu ürünü silmek istediğinizden emin misiniz?</h3>
+<div class="card shadow-lg p-4 rounded bg-light">
+    <div class="card-header bg-danger text-white">
+        <h4>Ürün Ağacı Bilgileri</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">Ürün Ağacı Kodu</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BOMDOCNUM)</dd>
+
+            <dt class="col-sm-4">Ürün Ağacı Tipi</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BOMDOCTYPE)</dd>
+
+            <dt class="col-sm-4">Geçerlilik Başlangıç</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BOMDOCFROM)</dd>
+
+            <dt class="col-sm-4">Geçerlilik Bitiş</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BOMDOCUNTIL)</dd>
+
+            <dt class="col-sm-4">Miktar</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.QUANTITY)</dd>
+
+            <dt class="col-sm-4">İçerik Numarası</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.CONTENTNUM)</dd>
+
+            <dt class="col-sm-4">Bileşen</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.COMPONENT)</dd>
+
+            <dt class="col-sm-4">Silindi mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISDELETED)</dd>
+
+            <dt class="col-sm-4">Pasif mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISPASSIVE)</dd>
+
+            <dt class="col-sm-4">Çizim Numarası</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.DRAWNUM)</dd>
+
+            <dt class="col-sm-4">Firma Kodu</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FCOMCODE.COMCODE)</dd>
+
+            <dt class="col-sm-4">Doküman Türü</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.DOCTYPE.DOCTYPE)</dd>
+
+            <dt class="col-sm-4">Malzeme Doküman Numarası</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MATDOCNUM)</dd>
+
+            <dt class="col-sm-4">Malzeme Türü</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FMATDOCTYPE.DOCTYPE)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BOMDOCNUM" />
+        <button type="submit" class="btn btn-danger btn-lg shadow-sm">
+            <i class="fas fa-trash-alt"></i> Sil
+        </button>
+        <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">
+            <i class="fas fa-list"></i> Listeye Geri Dön
+        </a>
+    </form>
+</div>
+
+<style>
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+</style>

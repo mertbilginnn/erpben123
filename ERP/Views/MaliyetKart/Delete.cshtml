@@ -1,0 +1,111 @@
+﻿@model ERP.Models.Veri.Maliyet.BSMGRNNMCCMHEAD
+
+@{
+    ViewData["Title"] = "Maliyet Merkezi Sil";
+}
+
+<h1 class="text-danger text-center mb-4">Maliyet Merkezi Sil</h1>
+<h4 class="text-center">Bu maliyet merkezini silmek istediğinizden emin misiniz?</h4>
+
+<div class="card shadow-lg mb-4">
+    <div class="card-header bg-danger text-white">
+        <h5>Silme İşlemi Onayı</h5>
+    </div>
+    <div class="card-body">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 fw-bold text-secondary">Geçerlilik Başlangıç:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.CCMDOCFROM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Geçerlilik Bitiş:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.CCMDOCUNTIL)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Ana Maliyet Merkezi Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MAINCCMDOCNUM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Ana Maliyet Merkezi Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MAINCCMDOCTYPE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Silindi mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISDELETED)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Pasif mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISPASSIVE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Kısa Açıklama:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.CCMSTEXT)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Uzun Açıklama:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.CCMLTEXT)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Firma Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FCOMCODE.COMCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Dil Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FLANCODE.LANCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Maliyet Merkezi Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.DOCTYPE.DOCTYPE)</dd>
+        </dl>
+    </div>
+</div>
+
+<!-- Butonlar -->
+<div class="text-center mb-4">
+    <form asp-action="Delete" class="d-inline-block">
+        <input type="hidden" asp-for="CCMDOCNUM" />
+        <button type="submit" class="btn btn-danger shadow-sm me-2">
+            <i class="fas fa-trash-alt"></i> Sil
+        </button>
+    </form>
+    <a asp-action="Index" class="btn btn-secondary shadow-sm">
+        <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+    </a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Stil Tasarımları -->
+<style>
+    .card {
+        border-radius: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        dd:last-child {
+            border-bottom: none;
+        }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    input:focus, select:focus {
+        box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover, a:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>

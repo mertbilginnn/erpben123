@@ -1,0 +1,123 @@
+﻿@model ERP.Models.Veri.Malzeme.BSMGRNNMMATHEAD
+
+@{
+    ViewData["Title"] = "Malzeme Kartı Detayları";
+}
+
+<h1 class="text-center text-primary mb-4">Malzeme Kartı Detayları</h1>
+
+<div class="card shadow-lg mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5>Detay Bilgileri</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <!-- Genel Bilgiler -->
+            <dt class="col-sm-4 fw-bold text-secondary">Geçerlilik Başlangıç:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MATDOCFROM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Geçerlilik Bitiş:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MATDOCUNTIL)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Tedarik Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.SUPPLYTYPE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Net Ağırlık:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.NETWEIGHT)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Brüt Ağırlık:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BRUTWEIGHT)</dd>
+
+            <!-- Ürün Ağacı ve Rota Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Ürün Ağacı Var mı?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISBOM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Rota Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FROTDOCTYPE.DOCTYPE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Rota Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ROTDOCNUM)</dd>
+
+            <!-- Stok ve Birim Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Stok Birimi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FSTUNIT.UNITCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Net Ağırlık Birimi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FNWUNIT.UNITCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Brüt Ağırlık Birimi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FBWUNIT.UNITCODE)</dd>
+
+            <!-- Firma ve Malzeme Tipi Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Firma Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FCOMCODE.COMCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Malzeme Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FMATDOCTYPE.DOCTYPE)</dd>
+
+            <!-- Ürün Ağacı Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Ürün Ağacı Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.BOMDOCNUM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Ürün Ağacı Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FBOMDOCTYPE.DOCTYPE)</dd>
+
+            <!-- Dil Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Dil Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FLANCODE.LANCODE)</dd>
+
+            <!-- Durum Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Silindi mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISDELETED)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Pasif mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISPASSIVE)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="text-center mb-4">
+    <a asp-action="Edit" asp-route-id="@Model?.MATDOCNUM" class="btn btn-primary me-2 shadow-sm">
+        <i class="fas fa-edit"></i> Düzenle
+    </a>
+    <a asp-action="Index" class="btn btn-secondary shadow-sm">
+        <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+    </a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<style>
+    .card {
+        border-radius: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        transition: 0.2s ease-in-out;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        dd:last-child {
+            border-bottom: none;
+        }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+</style>
