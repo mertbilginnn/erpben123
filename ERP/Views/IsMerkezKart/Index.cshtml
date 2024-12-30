@@ -23,15 +23,14 @@
             <th>Ana İş Merkezi Tipi</th>
             <th>Çalışma Süresi</th>
             <th>İş Merkezi Silindi mi?</th>
+            <th>Pasif mi?</th>
             <th>İş Merkezi Kısa Açıklaması</th>
             <th>İş Merkezi Uzun Açıklaması</th>
             <th>Operasyon Kodu</th>
-            <th>Pasif mi?</th>
             <th>Firma Kodu</th>
             <th>Maliyet Merkezi Kodu</th>
             <th>Maliyet Merkezi Tipi</th>
             <th>Dil Kodu</th>
-
             <th class="text-center">İşlemler</th>
         </tr>
     </thead>
@@ -52,9 +51,8 @@
                 <td>@Html.DisplayFor(modelItem => item.WCMLTWXT)</td>
                 <td>@Html.DisplayFor(modelItem => item.OPRDOCTYPE)</td>
                 <td>@Html.DisplayFor(modelItem => item.FCOMCODE.COMCODE)</td>
-                <td>@Html.DisplayFor(modelItem => item.DOCTYPE.DOCTYPE)</td>
                 <td>@Html.DisplayFor(modelItem => item.CCMDOCNUM)</td>
-                <td>@Html.DisplayFor(modelItem => item.FCCMDOCTYPE.DOCTYPE)</td>
+                <td>@Html.DisplayFor(modelItem => item.CCMDOCTYPE)</td>
                 <td>@Html.DisplayFor(modelItem => item.FLANCODE.LANCODE)</td>
                 <td class="text-center">
                     <a class="btn btn-primary btn-sm mx-1 shadow-sm" asp-action="Edit" asp-route-id="@item.WCMDOCNUM">
