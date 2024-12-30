@@ -1,44 +1,89 @@
 ﻿@model ERP.Models.Kontrol.RotaBilgi.BSMGRNNMOPR001
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Operasyon Düzenle";
 }
 
-<h1>Edit</h1>
+<h1 class="text-primary text-center mb-4">Operasyon Düzenle</h1>
 
-<h4>BSMGRNNMOPR001</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-6 shadow-lg p-4 rounded bg-light">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="DOCTYPE" />
-            <div class="form-group">
-                <label asp-for="DOCTYPETEXT" class="control-label"></label>
-                <input asp-for="DOCTYPETEXT" class="form-control" />
+
+            <!-- Operasyon Tipi (Gizli Alan) -->
+            <div class="form-group mb-3">
+                <label asp-for="DOCTYPE" class="control-label">Operasyon Tipi</label>
+                <input asp-for="DOCTYPE" class="form-control" placeholder="Operasyon Tipi Giriniz" />
+                <span asp-validation-for="DOCTYPE" class="text-danger"></span>
+            </div>
+
+            <!-- Operasyon Açıklaması -->
+            <div class="form-group mb-3">
+                <label asp-for="DOCTYPETEXT" class="control-label">Operasyon Açıklaması</label>
+                <input asp-for="DOCTYPETEXT" class="form-control" placeholder="Operasyon açıklaması giriniz" />
                 <span asp-validation-for="DOCTYPETEXT" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ISPASSIVE" class="control-label"></label>
-                <input asp-for="ISPASSIVE" class="form-control" />
+
+            <!-- Pasif Mi? (Dropdown) -->
+            <div class="form-group mb-3">
+                <label asp-for="ISPASSIVE" class="control-label">Pasif mi?</label>
+                <select asp-for="ISPASSIVE" class="form-control">
+                    <option value="false">Hayır</option>
+                    <option value="true">Evet</option>
+                </select>
                 <span asp-validation-for="ISPASSIVE" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="COMCODE" class="control-label"></label>
+
+            <!-- Firma Kodu -->
+            <div class="form-group mb-3">
+                <label asp-for="COMCODE" class="control-label">Firma Kodu</label>
                 <select asp-for="COMCODE" class="form-control" asp-items="ViewBag.COMCODE"></select>
                 <span asp-validation-for="COMCODE" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <!-- Butonlar -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm me-2">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">
+                    <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+                </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<!-- Stil Tasarımları -->
+<style>
+    input:focus, select:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover, a:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>

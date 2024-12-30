@@ -1,36 +1,80 @@
 ﻿@model ERP.Models.Kontrol.RotaBilgi.BSMGRNNMWCM001
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "İş Merkezi Detayları";
 }
 
-<h1>Details</h1>
+<h1 class="text-primary text-center mb-4">İş Merkezi Detayları</h1>
 
-<div>
-    <h4>BSMGRNNMWCM001</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DOCTYPETEXT)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DOCTYPETEXT)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ISPASSIVE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ISPASSIVE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FCOMCODE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FCOMCODE.COMCODE)
-        </dd>
-    </dl>
+<div class="card shadow-lg mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5>Detay Bilgileri</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <!-- İş Merkezi Tipi -->
+            <dt class="col-sm-4 fw-bold text-secondary">İş Merkezi Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.DOCTYPETEXT)</dd>
+
+            <!-- Pasif mi? -->
+            <dt class="col-sm-4 fw-bold text-secondary">Pasif mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISPASSIVE)</dd>
+
+            <!-- Firma Kodu -->
+            <dt class="col-sm-4 fw-bold text-secondary">Firma Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FCOMCODE.COMCODE)</dd>
+        </dl>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.DOCTYPE">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<!-- Butonlar -->
+<div class="text-center mb-4">
+    <a asp-action="Edit" asp-route-id="@Model?.DOCTYPE" class="btn btn-primary btn-lg shadow-sm me-2">
+        <i class="fas fa-edit"></i> Düzenle
+    </a>
+    <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">
+        <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+    </a>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Stil Tasarımları -->
+<style>
+    .card {
+        border-radius: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        dd:last-child {
+            border-bottom: none;
+        }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+</style>

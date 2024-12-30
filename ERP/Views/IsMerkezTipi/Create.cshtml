@@ -1,47 +1,89 @@
 ﻿@model ERP.Models.Kontrol.RotaBilgi.BSMGRNNMWCM001
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Yeni İş Merkezi Oluştur";
 }
 
-<h1>Create</h1>
+<h1 class="text-primary text-center mb-4">Yeni İş Merkezi Oluştur</h1>
 
-<h4>BSMGRNNMWCM001</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-6 shadow-lg p-4 rounded bg-light">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DOCTYPE" class="control-label"></label>
-                <input asp-for="DOCTYPE" class="form-control" />
+
+            <!-- İş Merkezi Tipi -->
+            <div class="form-group mb-3">
+                <label asp-for="DOCTYPE" class="form-label">İş Merkezi Tipi</label>
+                <input asp-for="DOCTYPE" class="form-control shadow-sm" />
                 <span asp-validation-for="DOCTYPE" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DOCTYPETEXT" class="control-label"></label>
-                <input asp-for="DOCTYPETEXT" class="form-control" />
+
+            <!-- Açıklama -->
+            <div class="form-group mb-3">
+                <label asp-for="DOCTYPETEXT" class="form-label">Açıklama</label>
+                <input asp-for="DOCTYPETEXT" class="form-control shadow-sm" />
                 <span asp-validation-for="DOCTYPETEXT" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ISPASSIVE" class="control-label"></label>
-                <input asp-for="ISPASSIVE" class="form-control" />
+
+            <!-- Pasif mi? -->
+            <div class="form-group mb-3">
+                <label asp-for="ISPASSIVE" class="form-label">Pasif mi?</label>
+                <select asp-for="ISPASSIVE" class="form-control shadow-sm">
+                    <option value="True">Evet</option>
+                    <option value="False">Hayır</option>
+                </select>
                 <span asp-validation-for="ISPASSIVE" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="COMCODE" class="control-label"></label>
-                <select asp-for="COMCODE" class ="form-control" asp-items="ViewBag.COMCODE"></select>
+
+            <!-- Firma Kodu -->
+            <div class="form-group mb-3">
+                <label asp-for="COMCODE" class="form-label">Firma Kodu</label>
+                <select asp-for="COMCODE" class="form-control shadow-sm" asp-items="ViewBag.COMCODE"></select>
+                <span asp-validation-for="COMCODE" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <!-- Butonlar -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm me-2">
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg shadow-sm">
+                    <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+                </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<!-- Stil Tasarımları -->
+<style>
+    input:focus, select:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover, a:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
