@@ -1,108 +1,107 @@
 ﻿@model ERP.Models.Veri.IsMerkez.BSMGRNNMWCMHEAD
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "İş Merkezi Detayları";
 }
 
-<h1>Details</h1>
+<h1 class="text-center text-primary mb-4">İş Merkezi Detayları</h1>
 
-<div>
-    <h4>BSMGRNNMWCMHEAD</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WCMDOCFROM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WCMDOCFROM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WCMDOCUNTIL)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WCMDOCUNTIL)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MAINWCMDOCTYPE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MAINWCMDOCTYPE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MAINWCMDOCNUM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MAINWCMDOCNUM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WORKTIME)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WORKTIME)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ISDELETED)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ISDELETED)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ISPASSIVE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ISPASSIVE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WCMSTEXT)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WCMSTEXT)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WCMLTWXT)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WCMLTWXT)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OPRDOCTYPE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OPRDOCTYPE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FCOMCODE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FCOMCODE.COMCODE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DOCTYPE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DOCTYPE.DOCTYPE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CCMDOCNUM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CCMDOCNUM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FCCMDOCTYPE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FCCMDOCTYPE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FLANCODE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FLANCODE.LANCODE)
-        </dd>
-    </dl>
+<div class="card shadow-lg mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5>Detay Bilgileri</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <!-- Genel Bilgiler -->
+            <dt class="col-sm-4 fw-bold text-secondary">Firma Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FCOMCODE.COMCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">İş Merkezi Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMDOCNUM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">İş Merkezi Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMDOCTYPE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Başlangıç Tarihi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMDOCFROM)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Bitiş Tarihi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMDOCUNTIL)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Ana İş Merkezi Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MAINWCMDOCTYPE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Ana İş Merkezi Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.MAINWCMDOCNUM)</dd>
+
+            <!-- Çalışma Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Çalışma Süresi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WORKTIME)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Silindi mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISDELETED)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Pasif mi?</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.ISPASSIVE)</dd>
+
+            <!-- Tanım Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Kısa Tanım:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMSTEXT)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Uzun Tanım:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WCMLTWXT)</dd>
+
+            <!-- Dil Bilgileri -->
+            <dt class="col-sm-4 fw-bold text-secondary">Dil Kodu:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LANCODE)</dd>
+
+            <dt class="col-sm-4 fw-bold text-secondary">Operasyon Tipi:</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.OPRDOCTYPE)</dd>
+        </dl>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.WCMDOCNUM">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="text-center mb-4">
+    <a asp-action="Edit" asp-route-id="@Model?.WCMDOCNUM" class="btn btn-primary me-2 shadow-sm">
+        <i class="fas fa-edit"></i> Düzenle
+    </a>
+    <a asp-action="Index" class="btn btn-secondary shadow-sm">
+        <i class="fas fa-arrow-left"></i> Listeye Geri Dön
+    </a>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .card {
+        border-radius: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        transition: 0.2s ease-in-out;
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        dd:last-child {
+            border-bottom: none;
+        }
+
+    h1 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+</style>
